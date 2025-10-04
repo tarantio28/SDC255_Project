@@ -1,0 +1,46 @@
+# Project: SDC255
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = application.o menu.o calculateOne.o calculateTwo.o writeFile.o readFile.o mainLoop.o
+LINKOBJ  = application.o menu.o calculateOne.o calculateTwo.o writeFile.o readFile.o mainLoop.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = SDC255.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+application.o: application.c
+	$(CC) -c application.c -o application.o $(CFLAGS)
+
+menu.o: menu.c
+	$(CC) -c menu.c -o menu.o $(CFLAGS)
+
+calculateOne.o: calculateOne.c
+	$(CC) -c calculateOne.c -o calculateOne.o $(CFLAGS)
+
+calculateTwo.o: calculateTwo.c
+	$(CC) -c calculateTwo.c -o calculateTwo.o $(CFLAGS)
+
+writeFile.o: writeFile.c
+	$(CC) -c writeFile.c -o writeFile.o $(CFLAGS)
+
+readFile.o: readFile.c
+	$(CC) -c readFile.c -o readFile.o $(CFLAGS)
+
+mainLoop.o: mainLoop.c
+	$(CC) -c mainLoop.c -o mainLoop.o $(CFLAGS)

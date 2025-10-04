@@ -1,0 +1,2 @@
+This is an example line of output.
+Data written successfully!
